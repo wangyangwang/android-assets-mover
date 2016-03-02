@@ -2,26 +2,59 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    string path = "//Users/inbox/Google Drive/2.1 (1). Design (Find assets here)/design_DEVELOPERS/Android_assets/Temp";
-    ofDirectory dir(path);
+    string basePath ="//Users/inbox/Google Drive/2.1 (1). Design (Find assets here)/design_DEVELOPERS/Android_assets/";
+    
+    string assetspath = basePath+"Temp/";
+    
+    ofDirectory dir(assetspath);
     dir.allowExt("png");
     dir.listDir();
     for (int i=0; i<dir.size(); i++) {
         string name =dir.getFile(i).getBaseName();
         if (name.find("@2x") != string::npos) {
-            string dropped =
-            dir.getFile(i).renameTo()
-            cout<<name<<" contains@2x "<<endl;
+            
+            ofFile f = dir.getFile(i);
+            int atLoction = name.find("@");
+            string dropped = name.substr(0,atLoction);
+            f.renameTo(dropped + ".png");
+            cout<<f.getBaseName()<<endl;
+            f.moveTo(basePath+"drawable-xhdpi/");
         }else if(name.find("@1.5x") != string::npos){
-             cout<<name<<" contains@1.5x "<<endl;
+            
+            ofFile f = dir.getFile(i);
+            int atLoction = name.find("@");
+            string dropped = name.substr(0,atLoction);
+            f.renameTo(dropped + ".png");
+            cout<<f.getBaseName()<<endl;
+            f.moveTo(basePath+"drawable-hdpi/");
+            
         }else if(name.find("@3x") != string::npos){
-             cout<<name<<" contains@3x "<<endl;
+            ofFile f = dir.getFile(i);
+            int atLoction = name.find("@");
+            string dropped = name.substr(0,atLoction);
+            f.renameTo(dropped + ".png");
+            cout<<f.getBaseName()<<endl;
+            f.moveTo(basePath+"drawable-xxhdpi/");
+        
         }else if(name.find("@4x") != string::npos){
-             cout<<name<<" contains4x "<<endl;
+            
+            ofFile f = dir.getFile(i);
+            int atLoction = name.find("@");
+            string dropped = name.substr(0,atLoction);
+            f.renameTo(dropped + ".png");
+            cout<<f.getBaseName()<<endl;
+            f.moveTo(basePath+"drawable-xxxhdpi/");
+            
         }else if(name.find("@1x") != string::npos){
-             cout<<name<<" contains1x "<<endl;
+            ofFile f = dir.getFile(i);
+            int atLoction = name.find("@");
+            string dropped = name.substr(0,atLoction);
+            f.renameTo(dropped + ".png");
+            cout<<f.getBaseName()<<endl;
+            f.moveTo(basePath+"drawable-mdpi/");
         }
     }
+    
     ofExit();
 }
 
