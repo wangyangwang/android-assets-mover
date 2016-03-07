@@ -1,5 +1,8 @@
 # android-assets-mover
 
+Note:
+all path are hard coded, only applies to my file structure so i am building the new version with interface that allow you to choose directory that contains the original files and directory that you want to move the files into...
+
 this is a tool i wrote for preparing mobile design assets ( android platform )
 in android development, we usually have assets folders like 
 
@@ -16,6 +19,9 @@ in android development, we usually have assets folders like
   
   v1:
   all variables are hard coded. 
+
+v1.1:
+    added filter for Spanish and Portuguese. files with ending "_Spanish" and "_Portuguese" will be automaically put into drawable-[resolution]-es or drawable-[resolution]-pt folder.
   
   coming:
   v2: 
